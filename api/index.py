@@ -46,27 +46,27 @@ async def generate_signoff_pdf(data: EmployeeSignOffData):
         # ⚠️ PRO TIP: Bhai, in 'x' aur 'y' coordinates ko apne template ke exact layout 
         # ke hisaab se adjust kar lena. Maine abhi dummy coordinates dale hain.
         insertions = [
-            {"text": data.client_name_top, "x": 150, "y": 100},
-            {"text": data.name_top, "x": 150, "y": 120},
-            {"text": data.email_address, "x": 150, "y": 140},
+            {"text": data.client_name_top, "x": 114, "y": 234},
+            {"text": data.name_top, "x": 114, "y": 256},
+            {"text": data.email_address, "x": 114, "y": 282},
             
-            {"text": data.candidate_name, "x": 250, "y": 200},
-            {"text": data.position, "x": 250, "y": 220},
-            {"text": data.start_date, "x": 250, "y": 240},
-            {"text": data.annual_salary, "x": 250, "y": 260},
-            {"text": data.annual_tech_cost, "x": 250, "y": 280},
-            {"text": data.annual_office_cost, "x": 250, "y": 300},
-            {"text": data.total_cost, "x": 250, "y": 320},
+            {"text": data.candidate_name, "x": 250, "y": 327},
+            {"text": data.position, "x": 250, "y": 342},
+            {"text": data.start_date, "x": 250, "y": 357},
+            {"text": data.annual_salary, "x": 250, "y": 372},
+            {"text": data.annual_tech_cost, "x": 250, "y": 387},
+            {"text": data.annual_office_cost, "x": 250, "y": 402},
+            {"text": data.total_cost, "x": 250, "y": 417},
             
-            {"text": data.annual_leave, "x": 250, "y": 360},
-            {"text": data.probation_period, "x": 250, "y": 380},
-            {"text": data.notice_period, "x": 250, "y": 400},
+            {"text": data.annual_leave, "x": 250, "y": 462},
+            {"text": data.probation_period, "x": 250, "y": 477},
+            {"text": data.notice_period, "x": 250, "y": 492},
             
-            {"text": data.client_bottom, "x": 100, "y": 550},
-            {"text": data.signed, "x": 100, "y": 570},
-            {"text": data.name_bottom, "x": 100, "y": 590},
-            {"text": data.position_bottom, "x": 100, "y": 610},
-            {"text": data.date_bottom, "x": 100, "y": 630},
+            {"text": data.client_bottom, "x": 150, "y": 608},
+            {"text": data.signed, "x": 150, "y": 646},
+            {"text": data.name_bottom, "x": 150, "y": 678},
+            {"text": data.position_bottom, "x": 150, "y":710},
+            {"text": data.date_bottom, "x": 150, "y": 742},
         ]
         
         # Loop karke PDF par text likhna
