@@ -52,20 +52,20 @@ async def generate_signoff_pdf(data: EmployeeSignOffData):
             {"text": data.candidate_name, "x": 250, "y": 340},
             {"text": data.position, "x": 250, "y": 352},
             {"text": data.start_date, "x": 250, "y": 370},
-            {"text": data.annual_salary, "x": 250, "y": 385},
-            {"text": data.annual_tech_cost, "x": 250, "y": 350},
+            {"text": data.annual_salary, "x": 250, "y": 384},
+            {"text": data.annual_tech_cost, "x": 250, "y": 394},
             {"text": data.annual_office_cost, "x": 250, "y": 412},
-            {"text": data.total_cost, "x": 250, "y": 430},
+            {"text": data.total_cost, "x": 250, "y": 428},
             
-            {"text": data.annual_leave, "x": 250, "y": 475},
-            {"text": data.probation_period, "x": 250, "y": 490},
-            {"text": data.notice_period, "x": 250, "y": 505},
+            {"text": data.annual_leave, "x": 250, "y": 472},
+            {"text": data.probation_period, "x": 250, "y": 487},
+            {"text": data.notice_period, "x": 250, "y": 503},
             
-            {"text": data.client_bottom, "x": 150, "y": 621},
-            {"text": data.signed, "x": 150, "y": 659},
-            {"text": data.name_bottom, "x": 150, "y": 691},
-            {"text": data.position_bottom, "x": 150, "y":723},
-            {"text": data.date_bottom, "x": 150, "y": 755},
+            {"text": data.client_bottom, "x": 145, "y": 619},
+            {"text": data.signed, "x": 145, "y": 659},
+            {"text": data.name_bottom, "x": 145, "y": 691},
+            {"text": data.position_bottom, "x": 145, "y":723},
+            {"text": data.date_bottom, "x": 145, "y": 755},
         ]
         
         # Loop karke PDF par text likhna
