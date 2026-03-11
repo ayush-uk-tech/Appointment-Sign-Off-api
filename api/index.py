@@ -6,7 +6,7 @@ import os
 
 app = FastAPI()
 
-# Naye template ke hisaab se Data Model
+
 class EmployeeSignOffData(BaseModel):
     # Top Section
     client_name_top: str        # CLIENT NAME [cite: 6]
@@ -37,36 +37,35 @@ class EmployeeSignOffData(BaseModel):
 @app.post("/generate-employee-signoff")
 async def generate_signoff_pdf(data: EmployeeSignOffData):
     try:
-        # Tumhare naye template ka naam (ensure karna ye file api/ folder me ho)
+       
         template_path = os.path.join(os.path.dirname(__file__), "template.pdf")
         
         doc = fitz.open(template_path)
         page = doc[0]
         
-        # ⚠️ PRO TIP: Bhai, in 'x' aur 'y' coordinates ko apne template ke exact layout 
-        # ke hisaab se adjust kar lena. Maine abhi dummy coordinates dale hain.
+      
         insertions = [
-            {"text": data.client_name_top, "x": 114, "y": 249},
-            {"text": data.name_top, "x": 114, "y": 271},
-            {"text": data.email_address, "x": 114, "y": 298},
+            {"text": data.client_name_top, "x": 114, "y": 247},
+            {"text": data.name_top, "x": 114, "y": 269},
+            {"text": data.email_address, "x": 114, "y": 296},
             
-            {"text": data.candidate_name, "x": 250, "y": 342},
-            {"text": data.position, "x": 250, "y": 357},
-            {"text": data.start_date, "x": 250, "y": 372},
-            {"text": data.annual_salary, "x": 250, "y": 387},
-            {"text": data.annual_tech_cost, "x": 250, "y": 342},
-            {"text": data.annual_office_cost, "x": 250, "y": 417},
-            {"text": data.total_cost, "x": 250, "y": 432},
+            {"text": data.candidate_name, "x": 250, "y": 340},
+            {"text": data.position, "x": 250, "y": 352},
+            {"text": data.start_date, "x": 250, "y": 370},
+            {"text": data.annual_salary, "x": 250, "y": 385},
+            {"text": data.annual_tech_cost, "x": 250, "y": 350},
+            {"text": data.annual_office_cost, "x": 250, "y": 412},
+            {"text": data.total_cost, "x": 250, "y": 430},
             
-            {"text": data.annual_leave, "x": 250, "y": 477},
-            {"text": data.probation_period, "x": 250, "y": 492},
-            {"text": data.notice_period, "x": 250, "y": 507},
+            {"text": data.annual_leave, "x": 250, "y": 475},
+            {"text": data.probation_period, "x": 250, "y": 490},
+            {"text": data.notice_period, "x": 250, "y": 505},
             
-            {"text": data.client_bottom, "x": 150, "y": 623},
-            {"text": data.signed, "x": 150, "y": 661},
-            {"text": data.name_bottom, "x": 150, "y": 693},
-            {"text": data.position_bottom, "x": 150, "y":725},
-            {"text": data.date_bottom, "x": 150, "y": 757},
+            {"text": data.client_bottom, "x": 150, "y": 621},
+            {"text": data.signed, "x": 150, "y": 659},
+            {"text": data.name_bottom, "x": 150, "y": 691},
+            {"text": data.position_bottom, "x": 150, "y":723},
+            {"text": data.date_bottom, "x": 150, "y": 755},
         ]
         
         # Loop karke PDF par text likhna
@@ -82,8 +81,7 @@ async def generate_signoff_pdf(data: EmployeeSignOffData):
         pdf_bytes = doc.write()
         doc.close()
         
-        # Dynamic filename banana: candidate_name + client_name
-        # Spaces ko underscore me convert kar rahe hain taaki URL/file-system friendly rahe
+       
         safe_candidate_name = data.candidate_name.replace(" ", "_")
         safe_client_name = data.client_name_top.replace(" ", "_")
         custom_filename = f"{safe_candidate_name}_{safe_client_name}.pdf"
